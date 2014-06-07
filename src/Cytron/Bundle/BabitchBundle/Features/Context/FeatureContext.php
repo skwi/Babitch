@@ -76,6 +76,7 @@ class FeatureContext extends BehatContext implements KernelAwareInterface
         foreach ($table->getRows() as $row) {
             $league = new League();
             $league->setName($row[0]);
+            $league->setGamelleRule($row[1]);
             $leagueManager->persist($league, true);
         }
     }

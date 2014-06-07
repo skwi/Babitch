@@ -9,10 +9,24 @@ Feature: League Ressource
         Then the response status code should be 201
         And the header "location" should be equal to "http://localhost/v1/leagues/1"
 
+        When I send a POST request on "/v1/leagues" with body:
+            """
+            {"name" : "Ligue 2", "gamelle_rule" : "both"}
+            """
+        Then the response status code should be 201
+        And the header "location" should be equal to "http://localhost/v1/leagues/1"
+
         When I send a GET request on "/v1/leagues/1"
         Then the response status code should be 200
         And the response should be in JSON
         And the JSON node "name" should be equal to "Ligue 1"
+        And the JSON node "gamelle_rule" should be equal to "none"
+
+        When I send a GET request on "/v1/leagues/2"
+        Then the response status code should be 200
+        And the response should be in JSON
+        And the JSON node "name" should be equal to "Ligue 2"
+        And the JSON node "gamelle_rule" should be equal to "both"
 
         When I send a GET request on "/v1/leagues"
         Then the response status code should be 200
