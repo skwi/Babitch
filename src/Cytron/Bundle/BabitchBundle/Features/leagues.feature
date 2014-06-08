@@ -31,7 +31,7 @@ Feature: League Ressource
         When I send a GET request on "/v1/leagues"
         Then the response status code should be 200
         And the response should be in JSON
-        And the JSON node "root[0].name" should be equal to "Ligue 1"
+        And the JSON node "root[0].name" should be equal to "Ligue 2"
 
         When I send a DELETE request on "/v1/leagues/1"
         Then the response status code should be 204
