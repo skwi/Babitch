@@ -53,6 +53,14 @@ class League extends AbstractEntity
     protected $gamelleRule;
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->gamelleRule = self::GAMELLE_RULE_NONE;
+    }
+
+    /**
      * @param int $id
      *
      * @return $this
