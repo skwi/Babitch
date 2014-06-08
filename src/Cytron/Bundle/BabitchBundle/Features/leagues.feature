@@ -14,7 +14,7 @@ Feature: League Ressource
             {"name" : "Ligue 2", "gamelle_rule" : "both"}
             """
         Then the response status code should be 201
-        And the header "location" should be equal to "http://localhost/v1/leagues/1"
+        And the header "location" should be equal to "http://localhost/v1/leagues/2"
 
         When I send a GET request on "/v1/leagues/1"
         Then the response status code should be 200

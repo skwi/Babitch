@@ -16,6 +16,10 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class League extends AbstractEntity
 {
+    const GAMELLE_RULE_NONE   = 'none';
+    const GAMELLE_RULE_SINGLE = 'single';
+    const GAMELLE_RULE_BOTH   = 'both';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -40,6 +44,13 @@ class League extends AbstractEntity
      * @var string
      */
     protected $name;
+
+    /**
+     * @ORM\Column(name="gamelle_rule", type="string", nullable=true)
+     *
+     * @var string
+     */
+    protected $gamelleRule;
 
     /**
      * @param int $id
@@ -79,5 +90,37 @@ class League extends AbstractEntity
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set gamelleRule
+     *
+     * @param string $gamelleRule
+     */
+    public function setGamelleRule($gamelleRule = self::GAMELLE_RULE_NONE)
+    {
+        $this->gamelleRule = $gamelleRule;
+    }
+
+    /**
+     * Get gamelleRule
+     *
+     * @return  string
+     */
+    public function getGamelleRule()
+    {
+        return $this->gamelleRule;
+    }
+
+    /**
+     * @return array
+     */
+    public static function getAllowedGamelleRules()
+    {
+        return array(
+            self::GAMELLE_RULE_NONE   => self::GAMELLE_RULE_NONE,
+            self::GAMELLE_RULE_SINGLE => self::GAMELLE_RULE_SINGLE,
+            self::GAMELLE_RULE_BOTH   => self::GAMELLE_RULE_BOTH,
+        );
     }
 }
