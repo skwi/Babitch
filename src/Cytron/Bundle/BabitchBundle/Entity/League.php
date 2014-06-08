@@ -97,9 +97,9 @@ class League extends AbstractEntity
      *
      * @param string $gamelleRule
      */
-    public function setGamelleRule($gamelleRule = self::GAMELLE_RULE_NONE)
+    public function setGamelleRule($gamelleRule = null)
     {
-        $this->gamelleRule = $gamelleRule;
+        $this->gamelleRule = $gamelleRule ? $gamelleRule : self::GAMELLE_RULE_NONE;
     }
 
     /**
