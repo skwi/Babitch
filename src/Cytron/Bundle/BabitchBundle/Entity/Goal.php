@@ -60,7 +60,7 @@ class Goal extends AbstractEntity
     /**
      * @ORM\Column(name="position", type="string")
      * @Assert\NotBlank()
-     * 
+     *
      * @var string
      */
     protected $position;
@@ -72,6 +72,14 @@ class Goal extends AbstractEntity
      * @var boolean
      */
     protected $autogoal;
+
+    /**
+     * @ORM\Column(name="gamelle", type="boolean")
+     * @Assert\NotNull()
+     *
+     * @var boolean
+     */
+    protected $gamelle;
 
     /**
      * @ORM\Column(name="scored_at", type="datetime", nullable=true)
@@ -236,6 +244,26 @@ class Goal extends AbstractEntity
     public function getAutogoal()
     {
         return $this->autogoal;
+    }
+
+    /**
+     * Set gamelle
+     *
+     * @param boolean $gamelle
+     */
+    public function setGamelle($gamelle = null)
+    {
+        $this->gamelle = $gamelle;
+    }
+
+    /**
+     * Get gamelle
+     *
+     * @return  boolean
+     */
+    public function getGamelle()
+    {
+        return $this->gamelle;
     }
 
     /**

@@ -41,7 +41,8 @@ class GoalType extends AbstractType
                 'widget' => 'single_text',
                 'format' => DateTimeType::HTML5_FORMAT,
             ))
-            ->add('autogoal', 'checkbox');
+            ->add('autogoal', 'checkbox')
+            ->add('gamelle', 'checkbox');
     }
 
     /**
